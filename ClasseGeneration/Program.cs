@@ -5,7 +5,7 @@ string[] nomeAlunni = new string[numeroPostiAlunni];
 string[] cognomeAlunni = new string[numeroPostiAlunni];
 int[] etaAlunni = new int[numeroPostiAlunni];
 
-
+//--------------FUNZIONI----------------
     void stampaAlunni(string[] array)
     {
 
@@ -26,7 +26,7 @@ int[] etaAlunni = new int[numeroPostiAlunni];
     }
 
 
-
+//----------------STAMPA ETA-------------
 
 void stampaEta(int[] array)
 {
@@ -47,7 +47,7 @@ void stampaEta(int[] array)
     Console.WriteLine("]");
 }
 
-
+//--------------AGGIUNGI--------------
 void aggiungiAlunno(string nome, string cognome, int eta)
     {
         if (alunniAttuali < numeroPostiAlunni)
@@ -67,7 +67,7 @@ void aggiungiAlunno(string nome, string cognome, int eta)
 
 
 
-
+//-----------RIMUOVI-----------
 
     void rimuoviAlunno()
     {
@@ -188,10 +188,12 @@ while (true)
             aggiungiAlunno(nome, cognome, eta);
             Console.WriteLine("Il numero attuale di alunni è: " + alunniAttuali);
             break;
+
         case "rimuovi":
             rimuoviAlunno();
             Console.WriteLine("Il numero attuale di alunni è: " + alunniAttuali);
             break;
+
         case "alunni":
             Console.Write("I nomi degli alunni sono: ");
             stampaAlunni(nomeAlunni);
@@ -200,6 +202,7 @@ while (true)
             Console.Write("l'eta degli alunni è: ");
             stampaEta(etaAlunni);
             break;
+
         case "statistiche":
             Console.Write("L'eta media della classe è: ");
             CalcolaEtaMediaClasse(etaAlunni);
@@ -207,11 +210,7 @@ while (true)
             alunnoPiuGiovane(etaAlunni, nomeAlunni, cognomeAlunni);
             Console.Write("Il più vecchio è: ");
             alunnoPiuVecchio(etaAlunni, nomeAlunni, cognomeAlunni);
-
-
             break;
-
-
 
         default:
             Console.WriteLine("Mi dispiace non è un opzione tra quelle che puoi usare ");
