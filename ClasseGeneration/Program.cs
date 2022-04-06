@@ -105,14 +105,18 @@ void CalcolaEtaMediaClasse(int[] array)
 
 //una funzione EtaPiuGiovane che vi restituisce l'età dell'alunno più giovane in classe.
 
-void alunnoPiuGiovane(int[] array)
+void alunnoPiuGiovane(int[] array, string[] arrayNome, string[] arrayCognome)
 {
-    int etaPiugiovane = array[0];
-    for( int i = 1; i < array.Length; i++)
+    int etaPiuGiovane = array[0];
+    string nomePiuGiovane = arrayNome[0];
+    string cognomePiuGiovane = arrayCognome[0];
+    for ( int i = 1; i < array.Length; i++)
     {
-        if (array[i] < etaPiugiovane && array[i]!=0)
+        if (array[i] < etaPiuGiovane && array[i]!=0)
         {
-            etaPiugiovane = array[i];
+            etaPiuGiovane = array[i];
+            nomePiuGiovane = arrayNome[i];
+            cognomePiuGiovane = arrayCognome[i];
         }
 
         else if (array[i] == 0)
@@ -121,26 +125,31 @@ void alunnoPiuGiovane(int[] array)
         }
     }
 
-    Console.WriteLine(etaPiugiovane + " anni");
+    Console.WriteLine(nomePiuGiovane + " " + cognomePiuGiovane + " che ha " + etaPiuGiovane + " anni");
 }
 
 
 //una funzione EtàPiuVecchio che vi restituisce l'età dell'alunno più vecchio.
 
-void alunnoPiuVecchio(int[] array)
+void alunnoPiuVecchio(int[] array, string[]arrayNome, string[]arrayCognome )
 {
     int etaPiuVecchio = array[0];
+    string nomePiuVecchio = arrayNome[0];
+    string cognomePiuVecchio = arrayCognome[0];
+
     for (int i = 1; i < array.Length; i++)
     {
         if (array[i] > etaPiuVecchio)
         {
             etaPiuVecchio = array[i];
+            nomePiuVecchio = arrayNome[i];
+            cognomePiuVecchio = arrayCognome[i];
         }
 
         
     }
 
-    Console.WriteLine(etaPiuVecchio + " anni");
+    Console.WriteLine(nomePiuVecchio + " " + cognomePiuVecchio + " che ha " + etaPiuVecchio + " anni");
 }
 
 
@@ -194,10 +203,10 @@ while (true)
         case "statistiche":
             Console.Write("L'eta media della classe è: ");
             CalcolaEtaMediaClasse(etaAlunni);
-            Console.Write("L'alunno più giovane ha : ");
-            alunnoPiuGiovane(etaAlunni);
-            Console.Write("L'alunno più vecchio ha : ");
-            alunnoPiuVecchio(etaAlunni);
+            Console.Write("L'alunno più giovane è : ");
+            alunnoPiuGiovane(etaAlunni, nomeAlunni, cognomeAlunni);
+            Console.Write("Il più vecchio è: ");
+            alunnoPiuVecchio(etaAlunni, nomeAlunni, cognomeAlunni);
 
 
             break;
